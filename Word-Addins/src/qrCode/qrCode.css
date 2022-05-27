@@ -1,0 +1,36 @@
+
+textarea{
+    height: 100px;
+    width: 100%;
+    font-size: 20px;
+}
+#image{
+    margin-top:20px;
+    margin-left: 100px
+}
+
+#html{
+    margin-bottom: 15px;
+}
+
+#containerOption{
+    float: left;
+    align-items: flex-start;  
+}
+
+#capacity{
+    width: 80px;
+}
+.containerColorStart{
+    margin-top:10px;
+}
+.containerColorEnd{
+    margin-top:10px;
+}
+
+#btnQrCode{
+    margin-top:20px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 500;
+}

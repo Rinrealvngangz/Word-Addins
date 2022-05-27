@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+    <!-- Office JavaScript API -->   
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="./js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500&display=swap" rel="stylesheet"> 
+    <!-- Template styles -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
+    <link href="qrCode.css" rel="stylesheet" type="text/css" />
+    <link href="./css/evol-colorpicker.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="container">
+        <h2>Text to QR Code</h2>
+        <div id="textInput">
+               <textarea id="textInputArea" placeholder="Input Text"></textarea>
+        </div>
+        <div id="containerOption">
+            <div id="ErrorLevel">
+                <p>Error correction level:</p>
+                <input type="radio" id="html" name="errorLevel" value="L">
+                <label for="html">Low</label><br> 
+                <input type="radio" id="html" name="errorLevel" value="M">
+                <label for="html">Medium</label><br> 
+                <input type="radio" id="html" name="errorLevel" value="Q">
+                <label for="html">Quartile</label><br>     
+                <input type="radio" id="html" name="errorLevel" value="H">
+                <label for="html">Hight</label><br>   
+            </div>
+            
+            <div id="QrCapacity">
+                <p>QR Code capacity:</p>
+                <select name="capacity" id="capacity">
+                    <option value="1">Version 1</option>
+                    <option value="2">Version 2</option>
+                    <option value="3">Version 3</option>
+                    <option value="4">Version 4</option>
+                    <option value="5">Version 5</option>
+                    <option value="6">Version 6</option>
+                    <option value="7">Version 7</option>
+                    <option value="8">Version 8</option>
+                    <option value="9">Version 9</option>
+                    <option value="10">Version 10</option>
+                  </select>
+            </div>
+        
+             <div class="containerColorEnd" style="width:128px;">
+                <label for="mycolorEnd">Color background:</label>
+                <input style="width:100px;" id="mycolorEnd" class="colorPicker evo-cp0" />
+             </div>
+             <button id="btnQrCode">
+               Click to QRCode
+            </button>
+             <img id="image">    
+        </div>
+        <canvas id="canvas"></canvas>
+        <p id="test"></p>
+    </div> 
+    <script src="qrCode.js"></script>
+</body>
+</html>
