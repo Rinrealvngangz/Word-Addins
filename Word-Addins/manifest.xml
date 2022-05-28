@@ -46,13 +46,30 @@
                     <Description resid="TaskpaneButton.Tooltip"/>
                   </Supertip>
                   <Icon>
-                    <bt:Image size="16" resid="Icon.16x16"/>
-                    <bt:Image size="32" resid="Icon.32x32"/>
-                    <bt:Image size="80" resid="Icon.80x80"/>
+                    <bt:Image size="16" resid="IconQRCode.16x16"/>
+                    <bt:Image size="32" resid="IconQRCode.32x32"/>
+                    <bt:Image size="80" resid="IconQRCode.80x80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <SourceLocation resid="qrCode.Url"/>
+                  </Action>
+                </Control>
+
+                 <Control xsi:type="Button" id="tranlate">
+                  <Label resid="tranlate.Label"/>
+                  <Supertip>
+                    <Title resid="tranlate.Label"/>
+                    <Description resid="tranlate.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="IconTranslate.16x16"/>
+                    <bt:Image size="32" resid="IconTranslate.32x32"/>
+                    <bt:Image size="80" resid="IconTranslate.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="translator.Url"/>
                   </Action>
                 </Control>
               </Group>
@@ -66,20 +83,29 @@
         <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
         <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
         <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        <bt:Image id="IconQRCode.16x16" DefaultValue="https://localhost:3000/assets/qr-code-16.png"/>
+        <bt:Image id="IconQRCode.32x32" DefaultValue="https://localhost:3000/assets/qr-code-32.png"/>
+        <bt:Image id="IconQRCode.80x80" DefaultValue="https://localhost:3000/assets/qr-code-64.png"/>
+        <bt:Image id="IconTranslate.16x16" DefaultValue="https://localhost:3000/assets/icons8-translation-16.png"/>
+        <bt:Image id="IconTranslate.32x32" DefaultValue="https://localhost:3000/assets/icons8-translation-32.png"/>
+        <bt:Image id="IconTranslate.80x80" DefaultValue="https://localhost:3000/assets/icons8-translation-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
         <bt:Url id="qrCode.Url" DefaultValue="https://localhost:3000/qrCode.html"/>
+        <bt:Url id="translator.Url" DefaultValue="https://localhost:3000/translator.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="WordsTools.Label"  DefaultValue="Word-Tools"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="QR Code"/>
+         <bt:String id="tranlate.Label" DefaultValue="Translator"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+          <bt:String id="tranlate.Tooltip" DefaultValue="Click to Show a Taskpane"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

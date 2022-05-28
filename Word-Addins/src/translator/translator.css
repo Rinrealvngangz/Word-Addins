@@ -1,0 +1,66 @@
+/* 
+ * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
+ * See LICENSE in the project root for license information.
+ */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    background: #004882;
+}
+
+#textTranSlated {
+    width: 100%;
+}
+
+.box {
+    width: 100%;
+    height: 50px;
+    background: #004882;
+}
+
+.box select {
+    border-radius: 5px;
+    padding: 5px;
+    margin: 12px 12px 12px 14px;
+    width: 120px;
+    background-color: #0563af;
+    color: white;
+    border: none;
+    font-size: 14px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+}
+
+.box select option {
+    border-radius: 5px;
+    padding: 30px;
+}
+
+button {
+    padding: 5px;
+    border: none;
+    margin-left: 15px;
+    color: white;
+    background-color: #0563af;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+button:hover {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+}

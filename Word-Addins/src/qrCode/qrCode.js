@@ -9,6 +9,7 @@ Office.onReady(async(info) => {
  });
 });
 
+
  async function run() {
   return Word.run(async (context) => {
    const range = context.document.getSelection();
@@ -80,6 +81,3 @@ function getValueLevel() {
      level = levelValues[i].value;
   }
 }
-
-
-
