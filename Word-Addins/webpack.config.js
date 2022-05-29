@@ -20,7 +20,8 @@ module.exports = async (env, options) => {
       polyfill: ["core-js/stable", "regenerator-runtime/runtime"],
       commands: "./src/commands/commands.js",
       qrCode: "./src/qrCode/qrCode.js",
-      translator:"./src/translator/translator.js"
+      translator:"./src/translator/translator.js",
+      findWord:"./src/FindWord/findWord.js"
     },
     output: {
       devtoolModuleFilenameTemplate: "webpack:///[resource-path]?[loaders]",
@@ -89,7 +90,12 @@ module.exports = async (env, options) => {
         filename: "translator.html",
         template: "./src/translator/translator.html",
         chunks: ["polyfill", "translator"],
-      }),    
+      }), 
+      new HtmlWebpackPlugin({
+        filename: "findWord.html",
+        template: "./src/findWord/findWord.html",
+        chunks: ["polyfill", "findWord"],
+      })   
     ],
     devServer: {
       headers: {

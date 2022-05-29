@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contoso Task Pane Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../qrCode//js/evol-colorpicker.min.js" type="text/javascript" charset="utf-8"></script>
+    <!-- For more information on Fluent UI, visit https://developer.microsoft.com/fluentui#/. -->
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.6.1/css/fabric.min.css"/>
+
+    <!-- Template styles -->
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css">
+    <link href="findWord.css" rel="stylesheet" type="text/css" />
+    <link href="../qrCode/css/evol-colorpicker.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="ms-font-m ms-welcome ms-Fabric">
+   <div class="container">
+     <div id="inputFind">
+         <label for="find" class="form__label">Input word:</label>
+          <input id="find">
+          <a id="btnFind">Find</a>
+     </div>
+     <h3 id="totalResult"></h3>
+     <div id="results">
+        
+     </div>
+     <div id="optionSearch" style="display: none;">
+         <h5>Option search:</h5>
+            <input type="checkbox" id="color" name="colorSearch" class="colorSearch" value="color">
+            <label for="color">Color search</label><br>
+            <div class="containerColorEnd" style="width:128px;">
+                <input style="width:100px;" id="mycolorEnd" class="colorPicker evo-cp0" />
+            </div>
+        <input type="checkbox" id="hightlight" name="colorSearch" class="colorSearch"  value="hightlight">
+        <label for="hightlight">Hightlight search</label><br>
+        <div class="containerColorStart" style="width:128px;">
+            <input style="width:100px;" id="mycolorStart" class="colorPicker evo-cp0" />
+        </div>
+        <input type="checkbox" id="bold" name="colorSearch" class="colorSearch"  value="bold">
+        <label for="bold">Text Bold</label><br><br>
+     </div>
+   </div>
+</body>
+
+</html>

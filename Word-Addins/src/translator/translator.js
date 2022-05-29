@@ -168,7 +168,7 @@ async function checkSelectedText(){
 }
 async function autoDetect(textSelection){
 
-  const objectDectect=  fetch(`https://api-translate.systran.net/compatmode/google/language/translate/v2/detect?key=${API_KEY}&q=${textSelection}`)
+  const objectDectect = fetch(`https://api-translate.systran.net/compatmode/google/language/translate/v2/detect?key=${API_KEY}&q=${textSelection}`)
   .then(kq=>kq.json()).then(kq=> {return kq.data.detections[0].language})
   .catch(err=> console.log(err))
  return objectDectect;

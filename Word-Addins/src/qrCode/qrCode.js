@@ -2,7 +2,9 @@ const QRCode = require('qrcode')
 let colorHexEnd  = "#ffffffff";
 let level = "L";
 let version = "2";
+
 Office.onReady(async(info) => {
+   testFind();
   document.getElementById("btnQrCode").onclick = run;
   Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged,async (eventArgs)=>{
     await run();

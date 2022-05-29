@@ -55,7 +55,6 @@
                     <SourceLocation resid="qrCode.Url"/>
                   </Action>
                 </Control>
-
                  <Control xsi:type="Button" id="tranlate">
                   <Label resid="tranlate.Label"/>
                   <Supertip>
@@ -70,6 +69,23 @@
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <SourceLocation resid="translator.Url"/>
+                  </Action>
+                </Control>
+
+                 <Control xsi:type="Button" id="findWord">
+                  <Label resid="findWord.Label"/>
+                  <Supertip>
+                    <Title resid="findWord.Label"/>
+                    <Description resid="findWord.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="IconFindWord.16x16"/>
+                    <bt:Image size="32" resid="IconFindWord.32x32"/>
+                    <bt:Image size="80" resid="IconFindWord.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <SourceLocation resid="findWord.Url"/>
                   </Action>
                 </Control>
               </Group>
@@ -89,23 +105,29 @@
         <bt:Image id="IconTranslate.16x16" DefaultValue="https://localhost:3000/assets/icons8-translation-16.png"/>
         <bt:Image id="IconTranslate.32x32" DefaultValue="https://localhost:3000/assets/icons8-translation-32.png"/>
         <bt:Image id="IconTranslate.80x80" DefaultValue="https://localhost:3000/assets/icons8-translation-80.png"/>
+        <bt:Image id="IconFindWord.16x16" DefaultValue="https://localhost:3000/assets/findWord-16.png"/>
+        <bt:Image id="IconFindWord.32x32" DefaultValue="https://localhost:3000/assets/findWord-32.png"/>
+        <bt:Image id="IconFindWord.80x80" DefaultValue="https://localhost:3000/assets/findWord-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
         <bt:Url id="qrCode.Url" DefaultValue="https://localhost:3000/qrCode.html"/>
         <bt:Url id="translator.Url" DefaultValue="https://localhost:3000/translator.html"/>
+        <bt:Url id="findWord.Url" DefaultValue="https://localhost:3000/findWord.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="WordsTools.Label"  DefaultValue="Word-Tools"/>
         <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
         <bt:String id="TaskpaneButton.Label" DefaultValue="QR Code"/>
-         <bt:String id="tranlate.Label" DefaultValue="Translator"/>
+        <bt:String id="tranlate.Label" DefaultValue="Translator"/>
+        <bt:String id="findWord.Label" DefaultValue="Find Word"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
-          <bt:String id="tranlate.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="tranlate.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="findWord.Tooltip" DefaultValue="Click to Show a Taskpane"/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
