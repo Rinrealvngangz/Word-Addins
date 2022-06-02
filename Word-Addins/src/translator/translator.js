@@ -1,29 +1,32 @@
-/*
- * Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT license.
- * See LICENSE in the project root for license information.
- */
 
-/* global document, Office, Word */
-// npm cache --force clean  
-// npm install --force
-// const translate = require("@vitalets/google-translate-api");
+
 Office.onReady((info) => {
   if (info.host === Office.HostType.Word) {
     document.getElementById("insert").onclick = writeData;
     Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged, async (eventArgs) => {
-      await translate();
+       const checkbox = document.getElementById("vietnamese_K_Ho");
+      checkbox.checked=false;
+        checkVietNameseSelected();
+      await translates();
+      checkbox.addEventListener("change", (event) => {
+        console.log("trien");
+        if (event.currentTarget.checked) {
+          translate_K_Ho();
+        }
+      });
     });
   }
 });
 
-const API_KEY = "9f7725a9-cb3d-4814-bfb2-a2a033e19d60";
+const API_KEY = "b0ac586fa2mshf0687d63e8ec41cp13f635jsn560a4554a34a";
 const select = document.getElementById("selectCountry");
 const textArea = document.getElementById("textTranSlated");
+const checkBoxK_HO = document.getElementById("k_HO");
 
 function writeData(){
   Office.context.document.setSelectedDataAsync(textArea.value, function (asyncResult) {
     if (asyncResult.status == Office.AsyncResultStatus.Failed) {
-      write(asyncResult.error.message);
+      console.log(asyncResult.error.message);
     }
   });
 }
@@ -159,28 +162,72 @@ async function getSelectionText(){
 }
 
 async function checkSelectedText(){
+  var result =""
   let text = await getSelectionText();
-  if(text ===''){
-    console.log('empty')
-  }else{
-    return text;
-  }
+  text===""?console.log('empty'): result = text;
+ return result;
 }
-async function autoDetect(textSelection){
+ 
+async function translates(){
+ let text = await checkSelectedText();
+ if(text!==""){
+const data = [{"Text":text}];
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "X-RapidAPI-Host": "microsoft-translator-text.p.rapidapi.com",
+        "X-RapidAPI-Key": API_KEY
+      },
+      body: JSON.stringify(data) 
+    };
+    fetch(`https://microsoft-translator-text.p.rapidapi.com/translate?to%5B0%5D=${select.value}&api-version=3.0&profanityAction=NoAction&textType=plain`,
+      options
+    )
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response);
+        var textTranSlated = response[0].translations[0].text;
+        textArea.innerHTML = textTranSlated;
+      })
+      .catch((err) => console.error(err));
+ }
+}
 
-  const objectDectect = fetch(`https://api-translate.systran.net/compatmode/google/language/translate/v2/detect?key=${API_KEY}&q=${textSelection}`)
-  .then(kq=>kq.json()).then(kq=> {return kq.data.detections[0].language})
-  .catch(err=> console.log(err))
- return objectDectect;
+ async function translate_K_Ho(){
+ const text = textArea.value;
+    const data = {
+      lang2: 1,
+      word_text: text,
+    };
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    fetch(`https://tudien.dlu.edu.vn/translate/type/?format=json`, options)
+      .then((response) => response.json())
+      .then((response) => {
+        console.log(response)
+        var translateKHo = response.Dest
+        textArea.innerHTML = translateKHo;
+      })
+      .catch((err) => console.error(err));
 }
-async function translate(){
-  let optionTarget = select.value;
-  let textSelection = await checkSelectedText();
-  let languageCode = await autoDetect(textSelection);
-  if(textSelection && languageCode){
-    const langpair = `${languageCode}|${optionTarget}`;
-   fetch(`https://api.mymemory.translated.net/get?q=${textSelection}&langpair=${langpair}`)
-   .then(kq=>kq.json())
-   .then(kq=> textArea.innerHTML = kq.responseData.translatedText)
+
+function checkVietNameseSelected(){
+  if (select.value !== "vi") {
+    checkBoxK_HO.style.display= "none";
+  }else{
+    checkBoxK_HO.style.display="block"
   }
 }
+
+
+
+
+
+
+

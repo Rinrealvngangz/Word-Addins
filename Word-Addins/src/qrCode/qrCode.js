@@ -4,7 +4,6 @@ let level = "L";
 let version = "2";
 
 Office.onReady(async(info) => {
-   testFind();
   document.getElementById("btnQrCode").onclick = run;
   Office.context.document.addHandlerAsync(Office.EventType.DocumentSelectionChanged,async (eventArgs)=>{
     await run();
@@ -35,7 +34,7 @@ Office.onReady(async(info) => {
   });
 }
 function message(text){
-  document.getElementById("test").innerText += text;
+  document.getElementById("test").innerText = text;
 }
 
 function QRCanvas(text){
@@ -60,9 +59,15 @@ function QRImageUrl(text,options){
   }
   
   QRCode.toDataURL(text, opts, function (err, url) {
-    if (err) throw err
-    var img = document.getElementById('image');
-    img.src = url
+    if (err) {
+      console.log(`ERR:${err}`);
+      message(err);
+    }else{
+      message("");
+      var img = document.getElementById('image');
+      img.src = url
+    }
+   
   })
 }
 
